@@ -9,10 +9,12 @@
         There are @Model.Count() Members in the db.
     </div>
     <hr />
-    @foreach(var member in Model)
-    {       
-        <ul>@member.FirstName @member.LastName</ul>
-        
-    }
+    <ol>
+        @foreach(var member in Model)
+        {
+            <li>@member.FirstName @member.LastName</li>
+        }
+    </ol>
+    
 </div>
 
