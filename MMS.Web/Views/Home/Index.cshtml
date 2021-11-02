@@ -8,5 +8,11 @@
     <div>
         There are @Model.Count() Members in the db.
     </div>
+    <hr />
+    @foreach(var member in Model)
+    {       
+        <ul>@member.FirstName @member.LastName</ul>
+        
+    }
 </div>
 
