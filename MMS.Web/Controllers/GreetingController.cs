@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MMS.Web.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +13,9 @@ namespace MMS.Web.Controllers
         // GET: Greeting
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new GreetingViewModel();
+            viewModel.Message = ConfigurationManager.AppSettings["message"];
+            return View(viewModel);
         }
     }
 }

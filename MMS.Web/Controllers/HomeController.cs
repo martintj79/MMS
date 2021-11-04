@@ -10,9 +10,9 @@ namespace MMS.Web.Controllers
     public class HomeController : Controller
     {
         IMemberService db;
-        public HomeController()
+        public HomeController(IMemberService db)
         {
-            db = new InMemoryData();
+            this.db = db;
         }
 
         public ActionResult Index()
