@@ -7,5 +7,6 @@ namespace MMS.Data.Services
     public interface IMemberService
     {
         IEnumerable<Member> GetAll();
+        Member Get(int id);
     }
 }

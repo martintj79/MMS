@@ -19,6 +19,11 @@ namespace MMS.Data.Services
             };
         }
 
+        public Member Get(int id)
+        {
+            return InMemoryMembers.FirstOrDefault(m => m.Id == id);
+        }
+
         public IEnumerable<Member> GetAll()
         {
             return InMemoryMembers.OrderBy(m => m.FirstName);

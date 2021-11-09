@@ -4,17 +4,15 @@
 }
 
 <div class="jumbotron">
-    <h1>MMS </h1><h3>- Member Management Solution</h3>
+    <div class="row ">
+        <h2 class="col-lg-1">MMS </h2><h2 class="col-lg-11">- Member Management Solution</h2>
+    </div>
+
     <div>
         There are @Model.Count() Members in the db.
     </div>
-    <hr />
-    <ol>
-        @foreach(var member in Model)
-        {
-            <li>@member.FirstName @member.LastName</li>
-        }
-    </ol>
-    
 </div>
+
+<hr />
+
 

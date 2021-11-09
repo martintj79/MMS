@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MMS.Data.Models;
+using MMS.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,9 +11,17 @@ namespace MMS.Web.Api
 {
     public class MembersController : ApiController
     {
-        public string Get()
+        private readonly IMemberService db;
+
+        public MembersController(IMemberService db)
         {
-            return "Hello there. . .";
+            this.db = db;
+        }
+
+        public IEnumerable<Member> Get()
+        {
+            var model = db.GetAll();
+            return model;
         }
     }
 }

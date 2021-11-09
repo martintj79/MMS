@@ -19,7 +19,7 @@ namespace MMS.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ContainerConfig.RegisterContainer();
+            ContainerConfig.RegisterContainer(GlobalConfiguration.Configuration);
         }
     }
 }
