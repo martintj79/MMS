@@ -5,14 +5,14 @@
     ViewBag.Title = "Index";
 }
 
-    <h2>Members: </h2> <a>@Html.ActionLink("Create New", "Create")</a>
-
-
-
+<h2>Members: </h2>
+<div style="padding-bottom: 15px">
+    <a>@Html.ActionLink("Create New", "Create", "Members", null, new { @class = "btn btn-primary btn-large" })</a>
+</div>
 
 <table class="table">
     <tr>
-        <th>
+        <th style="padding-top: 15px">
             Full Name: 
         </th>
     </tr>
