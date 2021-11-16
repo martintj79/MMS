@@ -1,4 +1,5 @@
-﻿using MMS.Data.Services;
+﻿using MMS.Data.Models;
+using MMS.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,15 @@ namespace MMS.Web.Controllers
         {
             this.db = db;
         }
-        // GET: Members
+
+        [HttpGet]
         public ActionResult Index()
         {
             var model = db.GetAll();
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
             var model = db.Get(id);
@@ -34,9 +37,46 @@ namespace MMS.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Member member)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Add(member);
+                return RedirectToAction("Details", new { id = member.Id });
+            }
+
+            return View();
+
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.Get(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Member member)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(member);
+                return RedirectToAction("Details", new { id = member.Id });
+            }
+
+            return View(member);
         }
     }
 }

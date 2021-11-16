@@ -19,6 +19,29 @@ namespace MMS.Data.Services
             };
         }
 
+        public void Add(Member member)
+        {
+            InMemoryMembers.Add(member);
+            member.Id = InMemoryMembers.Max(r => r.Id) + 1;
+        }
+
+        public void Update(Member member)
+        {
+            var existing = Get(member.Id);
+            if (existing != null)
+            {
+                existing.FirstName = member.FirstName;
+                existing.LastName = member.LastName;
+                existing.MiddleName = member.MiddleName;
+                existing.StreetAddress = member.StreetAddress;
+                existing.MemberType = member.MemberType;
+                existing.State = member.State;
+                existing.ZipCode = member.ZipCode;
+                existing.City = member.City;
+                existing.ApartmentNum = member.ApartmentNum;
+            }
+        }
+
         public Member Get(int id)
         {
             return InMemoryMembers.FirstOrDefault(m => m.Id == id);
@@ -28,5 +51,7 @@ namespace MMS.Data.Services
         {
             return InMemoryMembers.OrderBy(m => m.FirstName);
         }
+
+
     }
 }

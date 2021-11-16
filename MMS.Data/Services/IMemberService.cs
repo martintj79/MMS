@@ -8,5 +8,8 @@ namespace MMS.Data.Services
     {
         IEnumerable<Member> GetAll();
         Member Get(int id);
+        void Add(Member member);
+        void Update(Member member);
+
     }
 }
