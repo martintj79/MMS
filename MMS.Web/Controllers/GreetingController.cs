@@ -13,9 +13,11 @@ namespace MMS.Web.Controllers
         // GET: Greeting
         public ActionResult Index(string name)
         {
-            var viewModel = new GreetingViewModel();
-            viewModel.Name = name ?? "No Name";
-            viewModel.Message = ConfigurationManager.AppSettings["message"];
+            var viewModel = new GreetingViewModel
+            {
+                Name = name ?? "No Name",
+                Message = ConfigurationManager.AppSettings["message"]
+            };
             return View(viewModel);
         }
     }
