@@ -10,6 +10,6 @@ namespace MMS.Data.Services
         Member Get(int id);
         void Add(Member member);
         void Update(Member member);
-
+        void Delete(int id);
     }
 }

@@ -19,8 +19,8 @@ namespace MMS.Web.App_Start
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<InMemoryData>().As<IMemberService>().SingleInstance();
-
+            builder.RegisterType<SqlMemberData>().As<IMemberService>().InstancePerRequest();
+            builder.RegisterType<MMSDBContext>().InstancePerRequest();
             var container = builder.Build();
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

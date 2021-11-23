@@ -52,6 +52,13 @@ namespace MMS.Data.Services
             return InMemoryMembers.OrderBy(m => m.FirstName);
         }
 
-
+        public void Delete(int id)
+        {
+            var member = Get(id);
+            if(member != null)
+            {
+                InMemoryMembers.Remove(member);
+            }
+        }
     }
 }
