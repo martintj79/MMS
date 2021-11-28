@@ -51,6 +51,7 @@ namespace MMS.Web.Controllers
             if (ModelState.IsValid)
             {
                 db.Add(member);
+                TempData["Message"] = "You have successfully created a Member.";
                 return RedirectToAction("Details", new { id = member.Id });
             }
 
@@ -73,6 +74,7 @@ namespace MMS.Web.Controllers
             if (ModelState.IsValid)
             {
                 db.Update(member);
+                TempData["Message"] = "You have successfully edited the Member.";
                 return RedirectToAction("Details", new { id = member.Id });
             }
 
