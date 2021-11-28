@@ -221,6 +221,7 @@
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Shared\_MemberSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
