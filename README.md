@@ -1,6 +1,6 @@
 # MMS
 Member Management System
-Application to save Member data and generate useful reports/stats.
+c# Application to save Member data and generate useful reports/stats.
 
 -Create new members
 -Edit existing members
